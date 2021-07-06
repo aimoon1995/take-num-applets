@@ -1,14 +1,16 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/shopper/shopper",
+
+    "pages/take/take",
+    "pages/takeSuc/takeSuc",
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "backgroundTextStyle":"dark",
+    "navigationBarTitleText": "美丽发屋",
+    "navigationBarTextStyle":"white",
+    "backgroundColor":"#bbb"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

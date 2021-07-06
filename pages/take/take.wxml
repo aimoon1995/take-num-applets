@@ -1,0 +1,27 @@
+<view class="out">
+<view class="top" >
+ <view style="flex:5;padding-left:70px;margin-bottom:10px">烫发人数:<text style="color:red">{{permCount}}</text></view>
+ <view style="flex:5">理发人数:<text style="color:red">{{haircutCount}}</text></view>
+</view>
+<view class="middle">
+  <view class = "permCountSec"><text style="padding-right:45px">理发</text><van-stepper input-width="80px" input-align="center"  button-size="62px" value="{{permCountSec}}" bind:change="permCountChange"  min="0" max="2" disable-input	/>
+  </view>
+  <view class = "haircutCountSec"><text style="padding-right:45px">烫发</text><van-stepper input-width="80px" input-align="center"  button-size="62px" value="{{ haircutCountSec }}" bind:change="haircutCountChange"  min="0" max="2" disable-input	/>
+  </view>
+  <van-cell-group style="padding-top:50px">
+  <van-field 
+    value="{{name}}"
+    required
+    clearable
+    autosize
+    label="称呼"
+    title-width = "3em"
+    placeholder="请输入称呼"
+    bind:blur	="clickIcon"
+    custom-style="width:300px"
+  />
+</van-cell-group>
+<van-button  round type="primary"  color="#7232dd" style="padding-top:50px" custom-style="width:180px" bindtap="takeNum">取号</van-button>
+  </view>
+  
+</view>

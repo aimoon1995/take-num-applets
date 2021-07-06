@@ -1,0 +1,18 @@
+<view class="out">
+<view class="top" >
+ <view style="flex:5;padding-left:70px;margin-bottom:10px">今日烫发人数:<text style="color:red">{{type1All}}</text></view>
+ <view style="flex:5">今日烫发人数:<text style="color:red">{{type2All}}</text></view>
+</view>
+ <view  class="row" wx:for="{{userInfo}}" wx:for-index="idx" wx:for-item="item" wx:key = "idx">
+   <view class="info">
+        <view >{{item.name}}</view>
+        <view style="padding-left:3px">{{item.mobile}}</view>
+        <view style="padding-left:3px">{{item.num}}</view>
+        <view style="padding-left:3px">{{item.type}}</view>
+        <view style="padding-left:3px">{{item.status}}</view>
+        <view style="padding-left:3px;color:blue"><navigator>开始</navigator></view>
+        <view style="padding-left:2px;color:blue"><navigator>完成</navigator></view>
+        <view style="padding-left:2px;color:blue"><navigator>废弃</navigator></view>
+   </view>
+ </view>
+</view>
