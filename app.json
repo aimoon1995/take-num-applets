@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/take/take",
     "pages/shopper/shopper",
 
-    "pages/take/take",
+   
     "pages/takeSuc/takeSuc",
     "pages/logs/logs"
   ],
