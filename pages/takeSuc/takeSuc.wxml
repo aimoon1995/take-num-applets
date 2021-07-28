@@ -1,8 +1,0 @@
-<view class="out">
-<view class="middle">
-  <view class = "type1NumSec"><text >您的理发号码是:{{type1Nums}}，您前面还有{{type1Count}}名理发排队人数</text>
-  </view>
-  <view class = "type2NumSec"><text >您的理发号码是:{{type1Nums}}，您前面还有{{type1Count}}名烫发排队人数</text>
-  </view>
-</view>
-</view>

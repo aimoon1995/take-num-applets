@@ -1,15 +1,10 @@
 {
   "pages":[
-    "pages/take/take",
-    "pages/shopper/shopper",
-
-   
-    "pages/takeSuc/takeSuc",
-    "pages/logs/logs"
+    "pages/take/take"
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarTitleText": "美丽发屋",
+    "navigationBarTitleText": "漫简造型",
     "navigationBarTextStyle":"white",
     "backgroundColor":"#bbb"
   },

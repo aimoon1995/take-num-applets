@@ -4,14 +4,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    serverUrl: 'http://192.168.100.152:8933',
+    serverUrl: 'https://moon.idoge.mobi',
     permCount:0,
     hairCutCount:0,
     permCountSec:0,
     hairCutCountSec:0,
     name:null,
     mobile:null,
-    token:null
+    token:null,
+    custNumShow:null
   },
 
   /**
@@ -38,8 +39,32 @@ Page({
     })
 
     this.getRuleNum()
+    this.showNumTips()
   },
-   
+  
+  
+  showNumTips:function(){
+    let that = this;
+    var openId = that.data.token
+      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      wx.request({
+        method: 'GET',
+        url: that.data.serverUrl+'/moon/take/num/type/showNum',
+        data: {
+          openId:openId
+        },
+        success: function (res) {
+          if (res.data.success) {
+            that.setData({
+              custNumShow:res.data.msg
+             })     
+          }
+        }
+      })
+  },
+
+
+
   getRuleNum:function(){
     let that = this;
       // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -133,6 +158,7 @@ Page({
     }; 
   },
   takeNum:function() {
+    let that = this
     var name = this.data.name;
     var mobile = this.data.mobile;
     var permCountSec = this.data.permCountSec;
@@ -151,32 +177,27 @@ Page({
         },
         method: "get",
         success: function (res) {
-          console.log(res);
+          if (res.data.success) {
+            
+            wx.showToast({
+              title: '取号成功，请您等候',
+              icon: 'none',
+              duration: 2000
+            })
+            that.getRuleNum()
+            that.showNumTips()
+          } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000
+            })
+          }
         }
       })
     }
   },
 
-
-  getPhoneNumber: function (e) {
-    var that = this;
-    console.log(e.detail.errMsg == "getPhoneNumber:ok");
-    if (e.detail.errMsg == "getPhoneNumber:ok") {
-      wx.request({
-        url: 'http://localhost/index/users/decodePhone',
-        data: {
-          encryptedData: e.detail.encryptedData,
-          iv: e.detail.iv,
-          sessionKey: that.data.session_key,
-          uid: "",
-        },
-        method: "post",
-        success: function (res) {
-          console.log(res);
-        }
-      })
-    }
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
