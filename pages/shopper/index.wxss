@@ -1,0 +1,32 @@
+/* pages/shopper/index.wxss */
+.container{
+  flex-direction: column;
+  box-sizing: border-box;
+  font-size:small;
+}
+.top {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-left: 5%;
+}
+
+.table {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-size:smaller;
+}
+
+.firstRow {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  font-size:smaller;
+  align-items: center;
+  justify-content: space-between;
+}

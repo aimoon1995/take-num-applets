@@ -1,0 +1,106 @@
+<!--pages/shopper/index.wxml-->
+<view class="container" >
+ <view class="top" >
+ <view style="flex:5;;padding-left:30px">烫发未结束人数:<text style="color:red">{{permCount}}</text></view>
+ <view style="flex:5; padding-left:30px">理发未结束人数:<text style="color:red">{{hairCutCount}}</text></view>
+</view>
+<van-divider contentPosition="center">列表</van-divider>
+<view class="table">
+  <van-row wx:for="{{numInfo}}" wx:item="item" wx:index="index" wx:key="index"> 
+  <!-- //理发 -->
+  <view wx:if="{{item.type != null && item.type == 1}}">
+  <!-- //待开始 -->
+  <block wx:if="{{item.status != null && item.status == 2}}">
+  <van-card
+  tag="理发"
+  currency = ""
+  price="等待中"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  <view slot="footer">
+    <van-button size="mini"  bind:click="start" data-id="{{item.uuid}}" data-openid= "{{item.openId}}" >开始</van-button>
+    <van-button size="mini" bind:click="refuse" data-id="{{item.uuid}}" data-openid= "{{item.openId}}">作废</van-button>
+  </view>
+  </van-card>
+  </block>
+   <!-- 进行中 -->
+   <block wx:if="{{item.status != null && item.status == 1}}">
+  <van-card
+  tag="理发"
+  currency = ""
+  price="进行中"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  <view slot="footer">
+    <van-button size="mini"  bind:click="complete" data-id="{{item.uuid}}" data-openid= "{{item.openId}}" >完成</van-button>
+    <van-button size="mini" bind:click="refuse" data-id="{{item.uuid}}" data-openid= "{{item.openId}}">作废</van-button>
+  </view>
+  </van-card>
+  </block>
+  <block wx:if="{{item.status != null && item.status == 3}}">
+  <van-card
+  tag="理发"
+  currency = ""
+  price="已完成"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  </van-card>
+  </block>
+</view>
+
+  <!-- //烫发 -->
+  <view wx:if="{{item.type != null && item.type == 2}}">
+  <!-- //待开始 -->
+  <block wx:if="{{item.status != null && item.status == 2}}">
+  <van-card
+  tag="烫发"
+  currency = ""
+  price="等待中"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  <view slot="footer">
+    <van-button size="mini"  bind:click="start" data-id="{{item.uuid}}" data-openid= "{{item.openId}}" >开始</van-button>
+    <van-button size="mini" bind:click="refuse" data-id="{{item.uuid}}" data-openid= "{{item.openId}}">作废</van-button>
+  </view>
+  </van-card>
+  </block>
+   <!-- 进行中 -->
+   <block wx:if="{{item.status != null && item.status == 1}}">
+  <van-card
+  tag="烫发"
+  currency = ""
+  price="进行中"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  <view slot="footer">
+    <van-button size="mini"  bind:click="complete" data-id="{{item.uuid}}" data-openid= "{{item.openId}}" >完成</van-button>
+    <van-button size="mini" bind:click="refuse" data-id="{{item.uuid}}" data-openid= "{{item.openId}}">作废</van-button>
+  </view>
+  </van-card>
+  </block>
+  <block wx:if="{{item.status != null && item.status == 3}}">
+  <van-card
+  tag="烫发"
+  currency = ""
+  price="已完成"
+  desc="称呼:{{item.name}} —— 电话:{{item.mobile}}"
+  title="{{item.num}} 号"
+  thumb="{{ imageURL }}"
+  >
+  </van-card>
+  </block>
+</view>
+  <van-divider></van-divider> 
+  </van-row>
+</view>
+</view>

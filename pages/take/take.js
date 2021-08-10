@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    serverUrl: 'https://moon.idoge.mobi',
+    //serverUrl: 'https://moon.idoge.mobi',
+    serverUrl: 'http://192.168.100.152:8933',
     permCount:0,
     hairCutCount:0,
     permCountSec:0,
@@ -33,6 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
     console.log(wx.getStorageSync('token')+"wx.getStorageSync('token')")
     this.setData({
       token:wx.getStorageSync('token')

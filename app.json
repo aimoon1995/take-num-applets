@@ -1,6 +1,9 @@
 {
   "pages":[
-    "pages/take/take"
+    "pages/index/index",
+    "pages/take/take",
+    "pages/shopper/index"
+
   ],
   "window":{
     "backgroundTextStyle":"dark",
