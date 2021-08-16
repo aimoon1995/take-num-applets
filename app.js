@@ -43,7 +43,7 @@ App({
         },
         success: function (res) {
           if (res.data.success) {
-            if (res.data.data != null && res.data.data.mobile === "888888") {
+            if (res.data.data != null && res.data.data.mobile === "888888") { 
               wx.redirectTo({
                   url: '../shopper/index',
                 })
